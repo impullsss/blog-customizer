@@ -6,15 +6,9 @@ import { Text } from 'src/ui/text';
 
 import styles from './Article.module.scss';
 
-import { OnClick } from '../../ui/arrow-button/ArrowButton';
-
-interface PropsArticle {
-	closeFn: OnClick;
-}
-
-export const Article = ({ closeFn }: PropsArticle) => {
+export const Article = () => {
 	return (
-		<article className={clsx(styles.article)} onClick={closeFn}>
+		<article className={clsx(styles.article)}>
 			<Text as='h1' size={45} weight={800} uppercase dynamicLite>
 				Портрет Западной Швейцарии
 			</Text>

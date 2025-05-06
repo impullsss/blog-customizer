@@ -20,18 +20,8 @@ export interface IAllOptions {
 	contentWidth: OptionType;
 }
 
-
 const App = () => {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [pageState, setPageState] = useState<IAllOptions>(defaultArticleState);
-
-	function toggleOpen() {
-		setIsOpen((oldVal) => !oldVal);
-	}
-
-	function handleClose() {
-		setIsOpen(false);
-	}
 
 	return (
 		<main
@@ -45,12 +35,8 @@ const App = () => {
 					'--bg-color': pageState.backgroundColor.value,
 				} as CSSProperties
 			}>
-			<ArticleParamsForm
-				onClick={toggleOpen}
-				isOpen={isOpen}
-				setPageState={setPageState}
-			/>
-			<Article closeFn={handleClose} />
+			<ArticleParamsForm onSubmit={(options) => setPageState(options)} />
+			<Article />
 		</main>
 	);
 };
